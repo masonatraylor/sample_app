@@ -30,4 +30,9 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'delete', count: 0
   end
 
+  test "index only displays active users" do
+    log_in_as(@non_admin)
+    get users_path
+  end
+
 end
